@@ -242,7 +242,9 @@ input:checked + .name:before {
 }
 .for_label{
     display: block;
-    
+}
+label{
+    display: block;
 }
 .name{
     user-select: none;

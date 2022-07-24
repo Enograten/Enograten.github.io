@@ -48,3 +48,4 @@ $('.slider').slick({
     console.log(countProduct)
     $(this).parent().find('.value').val(countProduct);
   })
+  AOS.init();
