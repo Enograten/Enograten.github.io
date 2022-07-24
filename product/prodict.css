@@ -666,6 +666,9 @@ select{
         width: 218.35px;
         height: 209px;
     }
+    label{
+        display: block;
+    }
     .other{
         text-align: center;
     }
@@ -715,7 +718,7 @@ select{
     .pictures{
         display: block;
     }
-    .detail_1{
+    .detail_11{
         background-color: #211F1C;
         width: 104.37px;
         height: 25.56px;
@@ -797,7 +800,7 @@ select{
         text-align: center;
     }
 }
-@media screen and (max-width: 1800px) {
+@media screen and (min-width: 360px) {
     .second_header{
         display: none;
     }
