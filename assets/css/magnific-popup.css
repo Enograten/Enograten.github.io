@@ -1,0 +1,31 @@
+.mfp-container *{
+	transition-timing-function:none;
+	-moz-transition-timing-function:none;
+	-webkit-transition-timing-function:none;
+	-o-transition-timing-function:none;
+	transition-duration:0s;
+	-moz-transition-duration:0s;
+	-webkit-transition-duration:0s;
+	-o-transition-duration:0s
+}
+.mfp-bg {
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+	z-index:1042;
+	overflow:hidden;
+	position:fixed;
+	background-color:
+	#0000008c;
+	opacity:1;
+	filter:alpha(opacity=90)
+}
+.mfp-black-bg {
+	background:rgba(0,0,0,.7)
+}
+.mfp-white-bg {
+	background:rgba(255,255,255,.96)
+}
+
+/*# sourceMappingURL=/s/files/1/0568/9547/1774/t/5/assets/magnific-popup.css.map?v=5259335330236467550 */
