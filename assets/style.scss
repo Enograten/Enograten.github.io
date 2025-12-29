@@ -35,7 +35,7 @@ body {
 }
 
 .section {
-    padding: 96px 0;
+    padding: 40px 0;
 }
 
 .section-title {
@@ -59,6 +59,7 @@ body {
         display: flex;
         align-items: center;
         gap: 20px;
+        justify-content: space-between;
     }
 
     .logo {
@@ -108,7 +109,6 @@ body {
 
     .burger {
         display: none;
-        margin-left: 8px;
         width: 44px;
         height: 44px;
         border: 1px solid var(--border);
@@ -126,7 +126,6 @@ body {
             background: var(--text);
             margin: 0 auto;
             position: relative;
-            top: 0;
             transition: .2s ease;
         }
 
@@ -143,13 +142,72 @@ body {
 
     @media (max-width: 900px) {
         .main-nav {
-            display: none;
+            display: block;
+            position: fixed;
+            top: 68px;
+            left: 0;
+            right: 0;
+            z-index: 60;
+
+            padding: 16px 16px 20px;
+            background: color-mix(in oklab, #0b0f18 85%, transparent);
+            border-bottom: 1px solid var(--border);
+            backdrop-filter: blur(10px) saturate(120%);
+
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+
+            transform: translateY(-12px);
+            opacity: 0;
+            pointer-events: none;
+            transition: transform .22s ease, opacity .22s ease;
+
+            a {
+                width: 100%;
+                padding: 12px 14px;
+                border: 1px solid var(--border);
+                border-radius: 12px;
+                background: rgba(13, 18, 32, .55);
+
+                &:hover {
+                    background: rgba(110, 168, 255, .15);
+                    border-color: rgba(110, 168, 255, .35);
+                }
+            }
+
+            &.open {
+                transform: translateY(0);
+                opacity: 1;
+                pointer-events: auto;
+            }
         }
 
         .burger {
-            display: inline-block;
+            display: inline-grid;
+            place-items: center;
+        }
+
+        .burger[aria-expanded="true"] {
+            span {
+                background: transparent;
+            }
+
+            span::before {
+                top: 0;
+                transform: rotate(45deg);
+            }
+
+            span::after {
+                top: 0;
+                transform: rotate(-45deg);
+            }
         }
     }
+}
+
+.no-scroll {
+    overflow: hidden;
 }
 
 #modelHost canvas {
@@ -164,45 +222,37 @@ body {
 
 .hero {
     position: relative;
-
-    min-height: 100svh;
-    height: auto;
-
-    display: grid;
-    place-items: center;
-
     background: #000;
     overflow: hidden;
 
-    padding-top: calc(var(--header-height, 72px) + clamp(24px, 6vw, 64px));
-    padding-bottom: clamp(24px, 6vw, 64px);
+    min-height: 100svh;
+    padding-top: calc(var(--header-height, 72px) + clamp(18px, 4.8vw, 56px));
+    padding-bottom: clamp(18px, 4.8vw, 56px);
 
-    scroll-margin-top: var(--header-height, 72px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     .hero-inner {
         position: relative;
         z-index: 1;
 
-        width: min(1200px, 100% - 32px);
+        width: min(1120px, 100% - 40px);
         margin-inline: auto;
 
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: clamp(16px, 4vw, 28px);
-
-        align-items: center;
-        justify-items: center;
+        display: flex;
+        justify-content: center;
         text-align: center;
     }
 
     .hero-left {
         width: 100%;
-        max-width: 720px;
-        margin-inline: auto;
+        max-width: 760px;
 
         display: flex;
         flex-direction: column;
         align-items: center;
+        justify-content: center;
     }
 
     .hero-overlay {
@@ -213,12 +263,12 @@ body {
         --mx: -100vw;
         --my: -100vh;
         background:
-            radial-gradient(450px 450px at var(--mx) var(--my),
+            radial-gradient(520px 520px at var(--mx) var(--my),
                 rgba(0, 0, 0, 0) 0%,
-                rgba(0, 0, 0, 0) 40%,
-                rgba(0, 0, 0, .5) 60%,
-                rgba(0, 0, 0, .85) 75%,
-                rgba(0, 0, 0, .95) 85%,
+                rgba(0, 0, 0, 0) 42%,
+                rgba(0, 0, 0, .55) 62%,
+                rgba(0, 0, 0, .86) 76%,
+                rgba(0, 0, 0, .96) 88%,
                 #000 100%);
         transition: opacity .25s ease;
         opacity: 1;
@@ -238,75 +288,142 @@ body {
 
     .nick-3d-svg {
         display: block;
-        height: clamp(120px, 18vw, 150px);
-        width: auto;
+        width: min(900px, 100%);
+        height: auto;
+        max-height: 170px;
         margin-inline: auto;
     }
 
     .hero-subtitle {
         color: var(--muted, #ccc);
-        margin: 6px 0 20px;
+        margin: 14px 0 22px;
         font-size: clamp(13px, 1.7vw, 16px);
-        line-height: 1.45;
-        text-align: center;
+        line-height: 1.55;
+        max-width: 52ch;
     }
 
     .hero-actions {
-        width: 100%;
         display: flex;
+        align-items: center;
+        justify-content: center;
         gap: 12px;
         flex-wrap: wrap;
-        justify-content: center;
 
         .btn {
-            font-size: clamp(12px, 1.6vw, 14px);
-            padding: clamp(10px, 1.6vw, 12px) clamp(14px, 2.4vw, 18px);
-            border-radius: 10px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+
+            font-size: 14px;
+            padding: 12px 18px;
+            border-radius: 12px;
+            min-height: 44px;
+        }
+    }
+
+    @media (max-width: 1200px) {
+        .hero-inner {
+            width: min(980px, 100% - 32px);
+        }
+
+        .nick-3d-svg {
+            width: min(820px, 100%);
+            max-height: 160px;
+        }
+    }
+
+    @media (max-width: 900px) {
+        min-height: auto;
+        padding-top: calc(var(--header-height, 72px) + 40px);
+        padding-bottom: 56px;
+
+        .hero-inner {
+            width: min(820px, 100% - 28px);
+        }
+
+        .nick-3d-svg {
+            width: min(760px, 100%);
+            max-height: 150px;
+        }
+
+        .hero-subtitle {
+            margin: 12px 0 18px;
         }
     }
 
     @media (max-width: 640px) {
-        min-height: calc(100svh - var(--header-height, 72px));
+        padding-top: calc(var(--header-height, 72px) + 22px);
+        padding-bottom: 34px;
+
+        .hero-inner {
+            width: min(560px, 100% - 22px);
+        }
 
         .hero-overlay {
             background:
-                radial-gradient(240px 240px at var(--mx) var(--my),
+                radial-gradient(280px 280px at var(--mx) var(--my),
                     rgba(0, 0, 0, 0) 0%,
                     rgba(0, 0, 0, 0) 38%,
-                    rgba(0, 0, 0, .85) 39%,
-                    rgba(0, 0, 0, .95) 62%,
+                    rgba(0, 0, 0, .88) 40%,
+                    rgba(0, 0, 0, .96) 64%,
                     #000 100%);
+        }
+
+        .nick-3d-svg {
+            width: 100%;
+            max-height: 118px;
+        }
+
+        .hero-subtitle {
+            font-size: 14px;
+            margin: 10px 0 16px;
+            max-width: 46ch;
+        }
+
+        .hero-actions {
+            width: 100%;
+            flex-direction: column;
+            gap: 10px;
+
+            .btn {
+                width: 100%;
+                max-width: 520px;
+            }
         }
 
         #toggleLight {
             display: none;
         }
+    }
+
+    @media (max-width: 420px) {
+        .hero-inner {
+            width: min(520px, 100% - 18px);
+        }
 
         .nick-3d-svg {
-            height: clamp(84px, 20vw, 110px);
+            max-height: 96px;
         }
 
         .hero-subtitle {
-            font-size: clamp(12px, 3.8vw, 15px);
+            font-size: 13px;
         }
 
-        .hero-actions {
-            gap: 10px;
-
-            .btn {
-                width: 95%;
-                justify-content: center;
-            }
+        .hero-actions .btn {
+            padding: 11px 16px;
+            border-radius: 12px;
         }
     }
 
-    @media (max-width: 380px) {
+    @media (max-width: 360px) {
         .nick-3d-svg {
-            height: 78px;
+            max-height: 84px;
         }
 
         .hero-subtitle {
             font-size: 12px;
+            line-height: 1.5;
         }
     }
 
@@ -316,6 +433,7 @@ body {
         }
     }
 }
+
 
 
 .btn {
@@ -491,12 +609,10 @@ body {
         align-items: stretch;
     }
 
-    /* ====== плавное скрытие вместо display:none ====== */
     .skills-grid .skill {
         will-change: transform, opacity, max-height;
     }
 
-    /* скрываем всё после 4-й */
     .skills-grid:not(.is-expanded) .skill:nth-child(n + 5) {
         opacity: 0;
         transform: translateY(14px) scale(.98);
@@ -516,12 +632,10 @@ body {
             border-width .35s ease;
     }
 
-    /* раскрыто — возвращаем нормальную карточку */
     .skills-grid.is-expanded .skill:nth-child(n + 5) {
         opacity: 1;
         transform: translateY(0) scale(1);
         max-height: 420px;
-        /* запас */
         padding-top: 30px;
         padding-bottom: 30px;
         border-width: 2px;
@@ -534,7 +648,6 @@ body {
             border-width .45s ease;
     }
 
-    /* поочередное появление (только когда добавили класс reveal-in из JS) */
     .skills-grid.is-expanded .skill.reveal-in:nth-child(n + 5) {
         animation: skillReveal .5s cubic-bezier(.2, .9, .2, 1) both;
         animation-delay: var(--reveal-delay, 0ms);
@@ -558,7 +671,6 @@ body {
         margin-top: 34px;
     }
 
-    /* ====== улучшенная кнопка ====== */
     .skills-toggle {
         position: relative;
         display: inline-flex;
@@ -585,7 +697,6 @@ body {
             background .25s ease,
             border-color .25s ease;
 
-        /* градиентная “обводка” через псевдоэлемент */
         &::before {
             content: "";
             position: absolute;
@@ -649,7 +760,6 @@ body {
         }
     }
 
-    /* стрелка вверх при раскрытии */
     .skills-grid.is-expanded+.skills-actions .skills-toggle__icon i {
         transform: rotate(180deg);
     }
@@ -674,7 +784,6 @@ body {
             padding: 24px 18px;
         }
 
-        /* на мобиле подстрахуем высоту скрытых */
         .skills-grid.is-expanded .skill:nth-child(n + 5) {
             padding-top: 24px;
             padding-bottom: 24px;
