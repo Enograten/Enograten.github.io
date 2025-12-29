@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="eng">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Nikita — Front-end / WordPress</title>
+    <meta name="description"
+        content="Портфолио фронтенд-разработчика: вёрстка, WordPress, PageSpeed, адаптив, Figma-to-HTML." />
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+
+    <link rel="stylesheet" href="assets/style.css" />
+
+
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="#hero" class="logo" aria-label="На главную">
+                <span class="logo-mark">N</span><span class="logo-text">Nikita.dev</span>
+            </a>
+            <nav class="main-nav" aria-label="Главная навигация">
+                <a href="#about">About me</a>
+                <a href="#skills">Skills</a>
+                <a href="#projects">Projects</a>
+            </nav>
+            <button class="burger" aria-label="Открыть меню"><span></span></button>
+        </div>
+    </header>
+
+    <section id="hero" class="hero" aria-label="Приветствие">
+        <div class="sparkles"></div>
+        <div class="hero-overlay"></div>
+
+        <div class="container hero-inner">
+            <div class="hero-left">
+                <h1 class="nick-3d-visually-hidden">NIKITA dev</h1>
+
+                <svg class="nick-3d-svg" viewBox="0 0 1200 250" aria-hidden="true">
+                    <defs>
+                        <pattern id="tfill" width="1" height="1">
+                            <image href="assets/img/texture.png" width="1200" height="250"
+                                preserveAspectRatio="xMidYMid slice" />
+                        </pattern>
+                        <linearGradient id="outlineGradient" gradientTransform="rotate(135)">
+                            <stop offset="0%" stop-color="var(--accent, #6ea8ff)" />
+                            <stop offset="100%" stop-color="var(--accent-2, #a38bff)" />
+                        </linearGradient>
+                        <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+                            <feGaussianBlur stdDeviation="3" result="b1" />
+                            <feMerge>
+                                <feMergeNode in="b1" />
+                                <feMergeNode in="SourceGraphic" />
+                            </feMerge>
+                        </filter>
+                    </defs>
+                    <text x="0" y="65%" font-family="Jost, system-ui, sans-serif" font-size="180" font-weight="900"
+                        fill="url(#tfill)" stroke="url(#outlineGradient)" stroke-width="12" paint-order="stroke fill"
+                        filter="url(#glow)">
+                        NIKITA DEV
+                    </text>
+                </svg>
+
+                <p class="hero-subtitle">Front-end Developer · WordPress · Figma → HTML</p>
+
+                <div class="hero-actions">
+                    <a href="#projects" class="btn btn-primary">
+                        <i class="fa-solid fa-briefcase" aria-hidden="true"></i> View works
+                    </a>
+                    <button id="toggleLight" class="btn btn-ghost" aria-pressed="false">
+                        <i class="fa-solid fa-lightbulb" aria-hidden="true"></i>
+                        Turn off the lights
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="about" class="section about" aria-label="About me">
+        <div class="container about-inner">
+            <div class="about-text">
+                <h2 class="section-title">About Me</h2>
+
+                <p>
+                    I’m a web developer with <strong>2 years of hands-on experience</strong>, focused on crafting fast,
+                    clean, and conversion-driven interfaces. I build landing pages of <em>any complexity</em> — from
+                    ultra-light promo pages to multi-section funnels with animations and integrations.
+                </p>
+
+                <p>
+                    Most of my work lives in the <strong>iGaming</strong> niche, where deadlines are tight and
+                    performance is everything. I obsess over detail, polish pixels, and ship reliably —
+                    the kind of work that makes marketers smile and analytics grow.
+                </p>
+
+                <div class="about-socials">
+                    <a href="https://www.linkedin.com/in/nikita-cherviakov-b05451358/" target="_blank" rel="noopener"
+                        aria-label="LinkedIn">
+                        <i class="fa-brands fa-linkedin"></i>
+                    </a>
+                    <a href="https://t.me/enograten" target="_blank" rel="noopener" aria-label="Telegram">
+                        <i class="fa-brands fa-telegram"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="about-media">
+                <figure class="about-photo">
+                    <img src="/assets/img/ab.jpg" alt="My development workspace" loading="lazy">
+                </figure>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="skills" class="section skills" aria-label="Skills">
+        <div class="skills-bg" aria-hidden="true"></div>
+        <div class="container">
+            <h2 class="section-title">Skills</h2>
+
+            <div class="skills-grid" id="skillsGrid">
+                <article class="skill">
+                    <i class="fa-solid fa-code"></i>
+                    <h3>Core Front-End</h3>
+                    <p>HTML5 • CSS3 • SCSS • JavaScript (basic)</p>
+                </article>
+
+                <article class="skill">
+                    <i class="fa-solid fa-mobile-screen"></i>
+                    <h3>Responsive Layout</h3>
+                    <p>Responsive & cross-browser, pixel-perfect grids & type</p>
+                </article>
+
+                <article class="skill">
+                    <i class="fa-brands fa-figma"></i>
+                    <h3>Figma → HTML</h3>
+                    <p>Clean builds from design, careful spacing and rhythm</p>
+                </article>
+
+                <article class="skill">
+                    <i class="fa-solid fa-diagram-project"></i>
+                    <h3>From Brief to Launch</h3>
+                    <p>Websites from specs or minimal briefs, clear handoff</p>
+                </article>
+
+                <article class="skill">
+                    <i class="fa-solid fa-layer-group"></i>
+                    <h3>Page Design & Structure</h3>
+                    <p>Self-directed page architecture, section flow & UX</p>
+                </article>
+
+                <article class="skill">
+                    <i class="fa-brands fa-wordpress"></i>
+                    <h3>WordPress</h3>
+                    <p>Themes, custom blocks, dynamic content, site upgrades</p>
+                </article>
+
+                <article class="skill">
+                    <i class="fa-solid fa-gauge-high"></i>
+                    <h3>Performance</h3>
+                    <p>Optimizations for Google PageSpeed & real-world metrics</p>
+                </article>
+
+                <article class="skill">
+                    <i class="fa-solid fa-wrench"></i>
+                    <h3>Legacy Code</h3>
+                    <p>Refactoring, structure improvements, safe optimizations</p>
+                </article>
+
+                <article class="skill">
+                    <i class="fa-solid fa-display"></i>
+                    <h3>Device Coverage</h3>
+                    <p>Interfaces rendering correctly on any device</p>
+                </article>
+
+                <article class="skill">
+                    <i class="fa-solid fa-magnifying-glass-chart"></i>
+                    <h3>SEO Fundamentals</h3>
+                    <p>Semantic markup, load speed, Core Web Vitals basics</p>
+                </article>
+
+                <article class="skill">
+                    <i class="fa-solid fa-chart-line"></i>
+                    <h3>Tracking & A/B Testing</h3>
+                    <p>Clean analytics setup, events, experiments, informed decisions</p>
+                </article>
+
+                <article class="skill">
+                    <i class="fa-solid fa-plug"></i>
+                    <h3>Integrations & Forms</h3>
+                    <p>APIs, forms, validations, CRM/ESP integrations that don’t break</p>
+                </article>
+            </div>
+
+            <div class="skills-actions">
+                <button class="skills-toggle btn btn-ghost" type="button" aria-expanded="false"
+                    aria-controls="skillsGrid">
+                    <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+                    View all skills
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="section projects" aria-label="Projects">
+        <div class="projects-bg" aria-hidden="true"></div>
+        <div class="projects-noise" aria-hidden="true"></div>
+
+        <div class="container">
+            <h2 class="section-title">Projects</h2>
+
+            <div class="projects-grid">
+                <article class="project-card" data-tilt>
+                    <div class="project-media">
+                        <img src="assets/img/one.png" alt="iGaming Landing — promo page preview" loading="lazy" />
+                    </div>
+
+                    <div class="project-meta">
+                        <h3 class="project-title">iGaming Landing</h3>
+                        <p class="project-desc">High-converting promo with animations, fast TTI/LCP, clean structure.
+                        </p>
+                        <div class="project-tags">
+                            <span>Landing</span><span>Animation</span><span>PageSpeed</span>
+                        </div>
+
+                        <div class="project-actions">
+                            <a class="btn btn-ghost" href="https://github.com/Enograten/Igaming" target="_blank"
+                                rel="noopener">
+                                <i class="fa-brands fa-github" aria-hidden="true"></i> GitHub
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="project-card" data-tilt>
+                    <div class="project-media">
+                        <img src="assets/img/two.png" alt="WordPress promo site preview" loading="lazy" />
+                    </div>
+
+                    <div class="project-meta">
+                        <h3 class="project-title">WP Promo Site</h3>
+                        <p class="project-desc">Custom theme, dynamic blocks, clean admin, blazing performance.</p>
+                        <div class="project-tags">
+                            <span>WordPress</span><span>Blocks</span><span>Dynamic</span>
+                        </div>
+
+                        <div class="project-actions">
+                            <a class="btn btn-ghost" href="https://glitchnetix.com/" target="_blank" rel="noopener">
+                                <i class="fa-regular fa-eye" aria-hidden="true"></i> Live
+                            </a>
+                        </div>
+                    </div>
+                </article>
+                <article class="project-card" data-tilt>
+                    <div class="project-media">
+                        <img src="assets/img/three.png" alt="Pokies-Dreamland website preview" loading="lazy" />
+                    </div>
+
+                    <div class="project-meta">
+                        <h3 class="project-title">Pokies-Dreamland</h3>
+                        <p class="project-desc">
+                            Landing page crafted from Figma design. Fully responsive, optimized for Google PageSpeed
+                            90+.
+                        </p>
+                        <div class="project-tags">
+                            <span>Figma → HTML</span><span>PageSpeed</span><span>Responsive</span>
+                        </div>
+
+                        <div class="project-actions">
+                            <a class="btn btn-ghost" href="https://github.com/Enograten/Pokies-Dreamland"
+                                target="_blank" rel="noopener">
+                                <i class="fa-brands fa-github" aria-hidden="true"></i> GitHub
+                            </a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <p>© <span id="year"></span> Nikita.dev — Front-end & WordPress</p>
+            <a href="#hero" class="to-top" aria-label="Наверх"><i class="fa-solid fa-arrow-up"></i></a>
+        </div>
+    </footer>
+    <div id="lightbox" class="lightbox" aria-hidden="true">
+        <div class="lightbox-backdrop"></div>
+        <img class="lightbox-img" src="" alt="Preview">
+        <button class="lightbox-close" aria-label="Close">&times;</button>
+    </div>
+    <script type="importmap">
+{
+  "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+    "three/examples/jsm/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+  }
+}
+</script>
+    <script type="module" src="assets/main.js"></script>
+
+</body>
+
+</html>
